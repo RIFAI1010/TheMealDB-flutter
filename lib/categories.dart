@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:meal_api/mealsByCategory.dart';
 import 'package:meal_api/util.dart';
 import 'package:http/http.dart' as http;
+import 'package:meal_api/widget/loading.dart';
 import 'dart:convert';
 
-import 'package:meal_api/widget/navbar.dart';
+// import 'package:meal_api/widget/navbar.dart';
 
 class CategoriesPage extends StatefulWidget {
   @override
@@ -41,7 +42,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
         title: const Text('Categories'),
       ),
       body: categories.isEmpty
-          ? const Center(child: CircularProgressIndicator())
+          ? const LoadingWidget()
           : ListView.builder(
               itemCount: categories.length,
               itemBuilder: (context, index) {
