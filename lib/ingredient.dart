@@ -95,15 +95,24 @@ class _IngredientsPageState extends State<IngredientsPage> {
                     },
                   ),
           ),
-          Row(
+          // SizedBox(height: 16.0,),
+          Container(
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 255, 240, 209),
+                ),
                 onPressed:
-                    currentPage > 1 ? () => changePage(currentPage - 1) : null,
+                currentPage > 1 ? () => changePage(currentPage - 1) : null,
                 child: const Text('Previous'),
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 255, 240, 209),
+                ),
                 onPressed: currentPage * itemsPerPage < ingredients.length
                     ? () => changePage(currentPage + 1)
                     : null,
@@ -111,6 +120,9 @@ class _IngredientsPageState extends State<IngredientsPage> {
               ),
             ],
           ),
+
+          ),
+
         ],
       ),
     );
