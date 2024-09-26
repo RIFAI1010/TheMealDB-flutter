@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:meal_api/mealDetails.dart';
 import 'package:meal_api/util.dart';
 import 'package:http/http.dart' as http;
@@ -156,23 +155,35 @@ class MealByCategoryState extends State<MealByCategory> {
                     },
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                      onPressed: currentPage > 1
-                          ? () => changePage(currentPage - 1)
-                          : null,
-                      child: const Text('Previous'),
-                    ),
-                    ElevatedButton(
-                      onPressed: currentPage * itemsPerPage < meals.length
-                          ? () => changePage(currentPage + 1)
-                          : null,
-                      child: const Text('Next'),
-                    ),
-                  ],
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+
+                  child:  Row(
+
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 255, 240, 209),
+                        ),
+                        onPressed: currentPage > 1
+                            ? () => changePage(currentPage - 1)
+                            : null,
+                        child: const Text('Previous'),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 255, 240, 209),
+                        ),
+                        onPressed: currentPage * itemsPerPage < meals.length
+                            ? () => changePage(currentPage + 1)
+                            : null,
+                        child: const Text('Next'),
+                      ),
+                    ],
+                  ),
                 ),
+
               ],
             ),
     );
